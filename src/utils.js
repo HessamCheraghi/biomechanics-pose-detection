@@ -125,9 +125,11 @@ export function calculate(pose, calculationsRef, options) {
     pose.keypoints[7].y
   ).toFixed(2);
 
-  const text = `زاویه آرنج چپ: °${leftElbowAngle}\t\t زاویه آرنج راست: °${rightElbowAngle}\n زاویه شانه چپ: °${leftShoulderAngle}\t\t زاویه شانه راست: °${rightShoulderAngle}`;
+  // const text = `زاویه آرنج چپ: °${leftElbowAngle}\t\t زاویه آرنج راست: °${rightElbowAngle}\n زاویه شانه چپ: °${leftShoulderAngle}\t\t زاویه شانه راست: °${rightShoulderAngle}`;
+
+  const text = `<p>زاویه آرنج چپ: °${leftElbowAngle}</p><p>زاویه آرنج راست: °${rightElbowAngle}</p><p>زاویه شانه چپ: °${leftShoulderAngle}</p><p>زاویه شانه راست: °${rightShoulderAngle}</p>`;
   // eslint-disable-next-line no-param-reassign
-  calculationsRef.current.textContent = text;
+  calculationsRef.current.innerHTML = text;
 }
 
 export const detectorConfig = {

@@ -22,6 +22,11 @@
   width: 640px;
   height: 480px;
 }
+.result {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+}
 body {
   font-family: vazirmatn;
 }
@@ -33,5 +38,14 @@ body {
   .canvas {
     width: 360px;
     height: 480px;
+  }
+
+  p {
+    margin: 0;
+  }
+  .result {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
   }
 }

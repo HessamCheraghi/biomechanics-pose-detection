@@ -23,6 +23,14 @@ const rtlCache = createEmotionCache({
   key: "mantine-rtl",
   stylisPlugins: [rtlPlugin],
 });
+const calculateInterval = (frames) => {
+  if (frames === 0) return 1000;
+  if (frames === 25) return 500;
+  if (frames === 50) return 200;
+  if (frames === 75) return 100;
+  if (frames === 100) return 50;
+  return 1000;
+};
 
 function App() {
   const theme = useMantineTheme();
@@ -30,22 +38,19 @@ function App() {
   const webcamRef = React.useRef(null);
   const canvasRef = React.useRef(null);
   const calculationsRef = React.useRef(null);
-  const [frames, setFrames] = React.useState(100);
+  const [frames, setFrames] = React.useState(0);
   const [showDots, setShowDots] = React.useState(true);
   const [showLines, setShowLines] = React.useState(true);
   const [showAngles, setShowAngles] = React.useState(true);
 
   React.useEffect(() => {
-    const intervalID = setInterval(
-      () => {
-        detect(webcamRef, canvasRef, calculationsRef, {
-          showDots,
-          showLines,
-          showAngles,
-        });
-      },
-      frames === 0 ? 100 : frames * 10
-    );
+    const intervalID = setInterval(() => {
+      detect(webcamRef, canvasRef, calculationsRef, {
+        showDots,
+        showLines,
+        showAngles,
+      });
+    }, calculateInterval(frames));
 
     return () => {
       clearInterval(intervalID);
@@ -88,12 +93,13 @@ function App() {
                 value={frames}
                 onChange={setFrames}
                 label={null}
-                step={33.3}
+                step={25}
                 marks={[
-                  { value: 0, label: "100" },
-                  { value: 33.3, label: "300" },
-                  { value: 66.6, label: "500" },
-                  { value: 100, label: "1000" },
+                  { value: 0, label: "fps 1" },
+                  { value: 25, label: "fps 2" },
+                  { value: 50, label: "fps 5" },
+                  { value: 75, label: "fps 10" },
+                  { value: 100, label: "fps 24" },
                 ]}
               />
             </Navbar.Section>
@@ -123,7 +129,9 @@ function App() {
         }
         footer={
           <Footer p="md">
-            <pre ref={calculationsRef}>Loading...</pre>
+            <div className="result" ref={calculationsRef}>
+              Loading...
+            </div>
           </Footer>
         }
         header={
