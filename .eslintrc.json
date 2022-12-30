@@ -1,0 +1,23 @@
+{
+  "root": true,
+  "extends": ["airbnb", "airbnb/hooks", "prettier"],
+  "plugins": [],
+  "parserOptions": {
+    "ecmaVersion": 2022,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true
+  },
+  "settings": {
+    "react": {
+      "version": "18.0.0"
+    }
+  },
+  "rules": { "no-restricted-exports": 0 }
+}
