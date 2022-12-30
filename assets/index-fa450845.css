@@ -1,1 +1,0 @@
-.view{position:relative;margin:0 auto}.webcam{display:block;margin:0 auto;inset:0;text-align:center;z-index:1;width:640px;height:480px}.canvas{display:block;position:absolute;margin:0 auto;inset:0;text-align:center;z-index:1;width:640px;height:480px}body{font-family:vazirmatn}@media screen and (max-width: 910px){.webcam,.canvas{width:360px;height:270px}}
