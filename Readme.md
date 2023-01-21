@@ -4,7 +4,7 @@ This project was requested by **Dr. Sajjad taghvaii** for *`Intro to Biomechanic
 
 ## ⛔ Before you run the project
 
-- The AI mode used in this project is hosted no google servers so you might need a **`VPN`** in order to run the web application.
+- The AI mode used in this project is hosted on google servers so you might need a **`VPN`** in order to run the web application.
 - The project is already hosted in [hessamcheraghi.github.io/biomechanics-pose-detection](https://hessamcheraghi.github.io/biomechanics-pose-detection/) you **don't** need to run the project locally on your system.
 
 ## 🤔 How to run the project
